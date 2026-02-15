@@ -1,0 +1,89 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-arm64-openssl-3.0.x"]
+}
+
+// ──────────────────────────────────────────────────────────────
+// Database Provider Configuration
+//
+// LOCAL DEVELOPMENT (default): SQLite -- no external services needed.
+//   provider = "sqlite"
+//   DATABASE_URL=file:./dev.db
+//
+// PRODUCTION: Switch to PostgreSQL before deploying:
+//   provider = "postgresql"
+//   DATABASE_URL=postgresql://user:pass@host:5432/portfolio
+//   Then add @db.Date to DailyStats.date for proper date-only storage.
+// ──────────────────────────────────────────────────────────────
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Visitor Tracking ───
+
+model Visitor {
+  id         String     @id @default(uuid())
+  ipHash     String     @unique @map("ip_hash")
+  userAgent  String?    @map("user_agent")
+  referrer   String?
+  country    String?
+  city       String?
+  device     String?
+  browser    String?
+  os         String?
+  firstVisit DateTime   @default(now()) @map("first_visit")
+  lastVisit  DateTime   @default(now()) @map("last_visit")
+  visitCount Int        @default(1) @map("visit_count")
+  pageViews  PageView[]
+
+  @@map("visitors")
+}
+
+model PageView {
+  id        String   @id @default(uuid())
+  visitorId String   @map("visitor_id")
+  path      String
+  duration  Int?
+  timestamp DateTime @default(now())
+  visitor   Visitor  @relation(fields: [visitorId], references: [id])
+
+  @@index([visitorId])
+  @@index([timestamp])
+  @@map("page_views")
+}
+
+// ─── MCP Chat Logs ───
+
+model McpConversation {
+  id        String       @id @default(uuid())
+  visitorId String?      @map("visitor_id")
+  startedAt DateTime     @default(now()) @map("started_at")
+  messages  McpMessage[]
+
+  @@map("mcp_conversations")
+}
+
+model McpMessage {
+  id             String          @id @default(uuid())
+  conversationId String          @map("conversation_id")
+  role           String
+  content        String
+  timestamp      DateTime        @default(now())
+  conversation   McpConversation @relation(fields: [conversationId], references: [id])
+
+  @@index([conversationId])
+  @@map("mcp_messages")
+}
+
+// ─── Daily Analytics Cache ───
+
+model DailyStats {
+  id             String   @id @default(uuid())
+  date           DateTime @unique
+  uniqueVisitors Int      @default(0) @map("unique_visitors")
+  totalPageViews Int      @default(0) @map("total_page_views")
+  mcpChats       Int      @default(0) @map("mcp_chats")
+
+  @@map("daily_stats")
+}
