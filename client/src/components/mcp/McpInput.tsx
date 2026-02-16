@@ -29,7 +29,7 @@ export default function McpInput({ onSend, isLoading }: McpInputProps) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="border-t border-slate-700 px-3 py-2 bg-primary flex items-end gap-2"
+      className="border-t border-border px-3 py-2 bg-surface flex items-end gap-2"
     >
       <textarea
         ref={inputRef}
@@ -38,14 +38,14 @@ export default function McpInput({ onSend, isLoading }: McpInputProps) {
         onKeyDown={handleKeyDown}
         placeholder="Ask me anything about Ian..."
         rows={1}
-        className="flex-1 resize-none bg-transparent text-sm text-slate-200
-                   placeholder-slate-500 focus:outline-none py-2 max-h-24"
+        className="flex-1 resize-none bg-transparent text-sm text-text
+                   placeholder-text-muted focus:outline-none py-2 max-h-24"
         disabled={isLoading}
       />
       <button
         type="submit"
         disabled={!input.trim() || isLoading}
-        className="p-2 text-accent hover:text-accent/80 disabled:text-slate-600
+        className="p-2 text-accent hover:text-[#67e8f9] disabled:text-text-muted
                    disabled:cursor-not-allowed transition-colors"
         aria-label="Send message"
       >

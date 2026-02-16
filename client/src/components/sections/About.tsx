@@ -1,35 +1,35 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Code2, Smartphone, Server, Sparkles } from "lucide-react";
+import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { AppWindow, Binoculars, Server, Sparkles } from 'lucide-react';
 
 const strengths = [
   {
-    icon: Code2,
-    title: "Systems & Performance",
+    icon: AppWindow,
+    title: 'Full-stack Windows Applications',
     description:
-      "Developing high-performance C++20 Windows applications, profiling and optimizing database operations, implementing concurrent solutions with threading primitives.",
+      'Developing high-performance C++20 Windows applications, used by data analysts and field operators.',
   },
   {
     icon: Server,
-    title: "Full-Stack Development",
+    title: 'Data Transfer & Embedded Systems',
     description:
-      "Building complete web applications from database design to polished frontends using React, Express.js, PostgreSQL, and modern cloud infrastructure.",
+      'Increased data transfer speed up to 5x faster from embedded systems to local machines by removing redundant data chunks.',
   },
   {
-    icon: Smartphone,
-    title: "Observability & DevOps",
+    icon: Binoculars,
+    title: 'Observability',
     description:
-      "Architecting monitoring pipelines with Prometheus and Grafana, deploying on AWS with CI/CD automation, instrumenting production applications for visibility.",
+      'Instrumenting production applications for visibility, using Prometheus and Grafana.',
   },
 ];
 
 export default function About() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" className="section-padding bg-primary-light">
+    <section id="about" className="section-padding bg-surface">
       <div className="section-container" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -47,15 +47,15 @@ export default function About() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-3xl mx-auto mb-6"
         >
-          <p className="text-slate-300 leading-relaxed text-lg text-center">
+          <p className="text-text-secondary leading-relaxed text-lg text-center">
             I am a Computer Science student at Simon Fraser University and a
-            permanent resident of Canada. Currently working as a Software Engineering
-            Co-op at DarkVision, I specialize in high-performance C++ Windows applications
-            and full-stack development. I bring hands-on production experience in systems
-            programming, performance optimization, and cloud infrastructure. I am passionate
-            about building applications that are not only functional but also thoughtfully
-            designed and maintainable. Currently seeking co-op and new graduate roles where
-            I can contribute to impactful projects. Open to relocation.
+            permanent resident of Canada. Currently working as a Software
+            Engineering Co-op at DarkVision, I specialize in high-performance
+            C++ Windows applications and full-stack development. I am passionate
+            about building applications that are not only functional but also
+            thoughtfully designed and maintainable. Currently seeking co-op and
+            new graduate roles where I can contribute to impactful projects.
+            Open to relocation.
           </p>
         </motion.div>
 
@@ -66,16 +66,17 @@ export default function About() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="max-w-3xl mx-auto mb-16"
         >
-          <div className="flex items-start gap-3 p-4 bg-accent-cyan/5 border border-accent-cyan/20 rounded-lg">
-            <Sparkles size={20} className="text-accent-cyan mt-0.5 flex-shrink-0" />
+          <div className="flex items-start gap-3 p-4 bg-accent/10 border border-accent/20 rounded-lg">
+            <Sparkles size={20} className="text-accent mt-0.5 flex-shrink-0" />
             <div>
-              <p className="text-accent-cyan font-medium text-sm mb-1">
+              <p className="text-accent font-medium text-sm mb-1">
                 Want to learn more about my experience?
               </p>
-              <p className="text-slate-400 text-sm">
-                Try the AI chat widget in the bottom-right corner! Ask about my work at DarkVision,
-                technical skills, projects, or availability. It's powered by Claude AI and grounded
-                in real information about my background.
+              <p className="text-text-secondary text-sm">
+                Try the AI chat widget in the bottom-right corner! Ask about my
+                work at DarkVision, technical skills, projects, or availability.
+                It's powered by Claude AI and grounded in real information about
+                my background.
               </p>
             </div>
           </div>
@@ -95,8 +96,10 @@ export default function About() {
                 size={40}
                 className="text-accent mb-4 group-hover:scale-110 transition-transform duration-300"
               />
-              <h3 className="text-lg font-semibold mb-2">{strength.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
+              <h3 className="text-lg font-semibold mb-2 text-text">
+                {strength.title}
+              </h3>
+              <p className="text-text-secondary text-sm leading-relaxed">
                 {strength.description}
               </p>
             </motion.div>

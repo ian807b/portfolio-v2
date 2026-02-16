@@ -37,9 +37,9 @@ export default function Header() {
         {/* Logo */}
         <a
           href="#home"
-          className="text-xl font-bold tracking-tight hover:text-accent transition-colors"
+          className="text-xl font-bold tracking-tight text-text hover:text-accent transition-colors"
         >
-          <span className="gradient-text">Ian</span> Hwang
+          <span className="gradient-text">Ian</span>{" "}Hwang
         </a>
 
         {/* Desktop Navigation */}
@@ -53,7 +53,7 @@ export default function Header() {
                     "px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200",
                     activeSection === link.href.slice(1)
                       ? "text-accent bg-accent/10"
-                      : "text-slate-300 hover:text-white hover:bg-white/5"
+                      : "text-text-secondary hover:text-text hover:bg-surface-raised"
                   )}
                 >
                   {link.label}
@@ -65,7 +65,7 @@ export default function Header() {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden p-2 text-slate-300 hover:text-white"
+          className="md:hidden p-2 text-text-secondary hover:text-text"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle navigation menu"
           aria-expanded={isMobileMenuOpen}
@@ -76,7 +76,7 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMobileMenuOpen && (
-        <nav className="md:hidden bg-primary-light/95 backdrop-blur-md border-t border-slate-800 mt-2" aria-label="Mobile navigation">
+        <nav className="md:hidden bg-primary/95 backdrop-blur-md border-t border-border mt-2" aria-label="Mobile navigation">
           <ul className="flex flex-col p-4 gap-1">
             {NAV_LINKS.map((link) => (
               <li key={link.href}>
@@ -87,7 +87,7 @@ export default function Header() {
                     "block px-4 py-3 rounded-lg text-sm font-medium transition-colors",
                     activeSection === link.href.slice(1)
                       ? "text-accent bg-accent/10"
-                      : "text-slate-300 hover:text-white hover:bg-white/5"
+                      : "text-text-secondary hover:text-text hover:bg-surface-raised"
                   )}
                 >
                   {link.label}

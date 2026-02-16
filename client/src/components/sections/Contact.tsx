@@ -27,7 +27,7 @@ export default function Contact() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="max-w-xl mx-auto text-center"
         >
-          <p className="text-slate-300 leading-relaxed mb-8">
+          <p className="text-text-secondary leading-relaxed mb-8">
             I am actively seeking co-op and internship opportunities (available May 2026)
             and also open to new graduate roles. Whether you have an opportunity to discuss
             or just want to say hello, feel free to reach out. You can also try the AI chat
@@ -38,7 +38,7 @@ export default function Contact() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
             <a
               href={`mailto:${SOCIAL_LINKS.email}`}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white
+              className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-primary
                          rounded-lg font-medium hover:bg-accent/90 transition-colors"
             >
               <Mail size={18} />
@@ -52,7 +52,7 @@ export default function Contact() {
               href={SOCIAL_LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-slate-400 hover:text-accent transition-colors"
+              className="flex items-center gap-2 text-text-muted hover:text-accent transition-colors"
             >
               <Github size={20} />
               <span className="text-sm">GitHub</span>
@@ -61,7 +61,7 @@ export default function Contact() {
               href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-slate-400 hover:text-accent transition-colors"
+              className="flex items-center gap-2 text-text-muted hover:text-accent transition-colors"
             >
               <Linkedin size={20} />
               <span className="text-sm">LinkedIn</span>
@@ -69,7 +69,7 @@ export default function Contact() {
           </div>
 
           {/* Location */}
-          <div className="flex items-center justify-center gap-2 mt-6 text-slate-500 text-sm">
+          <div className="flex items-center justify-center gap-2 mt-6 text-text-muted text-sm">
             <MapPin size={14} />
             <span>British Columbia, Canada (Open to relocation)</span>
           </div>

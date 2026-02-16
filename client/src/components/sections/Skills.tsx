@@ -57,7 +57,7 @@ export default function Skills() {
                   {IconComponent && (
                     <IconComponent size={24} className="text-accent" />
                   )}
-                  <h3 className="font-semibold text-lg">{category.name}</h3>
+                  <h3 className="font-semibold text-lg text-text">{category.name}</h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (

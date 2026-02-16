@@ -28,10 +28,10 @@ export default function Experience() {
             className="card max-w-2xl mx-auto text-center"
           >
             <Briefcase size={40} className="text-accent mx-auto mb-4" />
-            <p className="text-slate-300 mb-2">
+            <p className="text-text-secondary mb-2">
               Actively seeking software engineering opportunities.
             </p>
-            <p className="text-slate-400 text-sm">
+            <p className="text-text-muted text-sm">
               Open to full-time roles, internships, and contract work. Let's
               connect -- use the chat widget below or reach out directly.
             </p>
@@ -56,7 +56,7 @@ export default function Experience() {
         {/* Timeline */}
         <div className="relative max-w-3xl mx-auto">
           {/* Timeline Line */}
-          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-slate-700 -translate-x-1/2" />
+          <div className="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-border -translate-x-1/2" />
 
           {EXPERIENCE.map((entry, index) => (
             <motion.div
@@ -73,16 +73,16 @@ export default function Experience() {
                 <p className="text-accent text-sm font-medium mb-1">
                   {entry.period}
                 </p>
-                <h3 className="text-lg font-semibold">{entry.role}</h3>
-                <p className="text-slate-400 text-sm mb-3">
+                <h3 className="text-lg font-semibold text-text">{entry.role}</h3>
+                <p className="text-text-muted text-sm mb-3">
                   {entry.company}
-                  {entry.location && ` • ${entry.location}`}
+                  {entry.location && ` \u2022 ${entry.location}`}
                 </p>
                 <ul className="space-y-1.5 mb-3">
                   {entry.description.map((item, i) => (
                     <li
                       key={i}
-                      className="text-slate-300 text-sm leading-relaxed"
+                      className="text-text-secondary text-sm leading-relaxed"
                     >
                       {item}
                     </li>
@@ -92,7 +92,7 @@ export default function Experience() {
                   {entry.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-2 py-0.5 text-xs bg-accent/10 text-accent-cyan rounded"
+                      className="px-2 py-0.5 text-xs bg-accent/10 text-accent rounded"
                     >
                       {tech}
                     </span>

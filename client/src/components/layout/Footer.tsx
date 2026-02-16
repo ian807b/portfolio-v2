@@ -6,24 +6,27 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-800 bg-primary">
+    <footer className="border-t border-border bg-surface">
       <div className="section-container py-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+        {/* Mobile: stacked center | Desktop: three equal grid columns */}
+        <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-4 text-center">
           {/* Left: Copyright */}
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-text-muted md:text-left">
             {currentYear} Ian Hwang. All rights reserved.
           </p>
 
           {/* Center: Visitor Counter */}
-          <VisitorCounter />
+          <div className="flex justify-center">
+            <VisitorCounter />
+          </div>
 
           {/* Right: Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 justify-center md:justify-end">
             <a
               href={SOCIAL_LINKS.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-text-muted hover:text-accent transition-colors"
               aria-label="GitHub"
             >
               <Github size={20} />
@@ -32,14 +35,14 @@ export default function Footer() {
               href={SOCIAL_LINKS.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-text-muted hover:text-accent transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
             <a
               href={`mailto:${SOCIAL_LINKS.email}`}
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-text-muted hover:text-accent transition-colors"
               aria-label="Email"
             >
               <Mail size={20} />

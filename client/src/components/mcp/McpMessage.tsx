@@ -19,8 +19,8 @@ export default function McpMessage({ message }: McpMessageProps) {
         className={cn(
           "max-w-[85%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed",
           isUser
-            ? "bg-accent text-white rounded-br-md"
-            : "bg-slate-800 text-slate-200 rounded-bl-md"
+            ? "bg-accent text-primary font-medium rounded-br-md"
+            : "bg-surface text-text rounded-bl-md border border-border"
         )}
       >
         <p className="whitespace-pre-wrap">{message.content}</p>

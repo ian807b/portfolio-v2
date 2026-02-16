@@ -11,8 +11,8 @@ export default function McpSuggestions({ onSelect }: McpSuggestionsProps) {
         <button
           key={suggestion}
           onClick={() => onSelect(suggestion)}
-          className="px-3 py-1.5 text-xs bg-primary border border-slate-700
-                     text-slate-300 rounded-full hover:border-accent/50
+          className="px-3 py-1.5 text-xs bg-surface border border-border
+                     text-text-secondary rounded-full hover:border-accent/50
                      hover:text-accent transition-all duration-200"
         >
           {suggestion}

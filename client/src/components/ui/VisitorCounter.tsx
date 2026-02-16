@@ -7,7 +7,7 @@ export default function VisitorCounter() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center gap-1.5 text-slate-500 text-sm">
+      <div className="flex items-center gap-1.5 text-text-muted text-sm">
         <Eye size={14} />
         <span>---</span>
       </div>
@@ -15,7 +15,7 @@ export default function VisitorCounter() {
   }
 
   return (
-    <div className="flex items-center gap-1.5 text-slate-500 text-sm">
+    <div className="flex items-center gap-1.5 text-text-muted text-sm">
       <Eye size={14} />
       <span>{formatNumber(visitorCount)} visitors</span>
     </div>

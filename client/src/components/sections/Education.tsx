@@ -7,7 +7,7 @@ export default function Education() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="education" className="section-padding bg-primary-light">
+    <section id="education" className="section-padding bg-surface">
       <div className="section-container" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,15 +36,15 @@ export default function Education() {
               />
 
               <div>
-                <h3 className="text-xl font-semibold mb-1">
+                <h3 className="text-xl font-semibold mb-1 text-text">
                   {entry.institution}
                 </h3>
                 <p className="text-accent text-sm font-medium mb-1">
                   {entry.degree}
                 </p>
-                <p className="text-slate-400 text-sm mb-4">{entry.period}</p>
+                <p className="text-text-muted text-sm mb-4">{entry.period}</p>
 
-                <h4 className="text-sm font-semibold text-slate-300 mb-3">
+                <h4 className="text-sm font-semibold text-text-secondary mb-3">
                   Relevant Coursework
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -57,14 +57,14 @@ export default function Education() {
 
                 {entry.achievements && entry.achievements.length > 0 && (
                   <>
-                    <h4 className="text-sm font-semibold text-slate-300 mt-4 mb-2">
+                    <h4 className="text-sm font-semibold text-text-secondary mt-4 mb-2">
                       Achievements
                     </h4>
                     <ul className="space-y-1">
                       {entry.achievements.map((achievement, i) => (
                         <li
                           key={i}
-                          className="text-slate-400 text-sm"
+                          className="text-text-muted text-sm"
                         >
                           {achievement}
                         </li>

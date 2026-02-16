@@ -29,8 +29,9 @@ export default function McpChat() {
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsOpen(true)}
             className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-5 py-3
-                       bg-accent text-white rounded-full shadow-lg shadow-accent/25
-                       hover:bg-accent/90 transition-colors"
+                       bg-accent text-primary rounded-full font-medium
+                       shadow-lg shadow-accent/25 hover:shadow-xl hover:shadow-accent/30
+                       hover:bg-accent/90 transition-all"
             aria-label="Open chat to ask about Ian"
           >
             <MessageCircle size={20} />
@@ -50,23 +51,23 @@ export default function McpChat() {
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
             className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-3rem)]
-                       h-[560px] max-h-[calc(100vh-3rem)] bg-primary-light border
-                       border-slate-700 rounded-2xl shadow-2xl shadow-black/40
+                       h-[560px] max-h-[calc(100vh-3rem)] bg-surface-raised border
+                       border-border rounded-2xl shadow-2xl shadow-black/40
                        flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-4 py-3 border-b border-slate-700 bg-primary">
+            <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-surface">
               <div>
-                <h3 className="font-semibold text-sm">Ask about Ian</h3>
-                <p className="text-xs text-slate-400">
+                <h3 className="font-semibold text-sm text-text">Ask about Ian</h3>
+                <p className="text-xs text-text-muted">
                   AI-powered Q&A about my background
                 </p>
               </div>
               <div className="flex items-center gap-1">
                 <button
                   onClick={clearChat}
-                  className="p-1.5 text-slate-400 hover:text-white rounded-lg
-                             hover:bg-white/5 transition-colors"
+                  className="p-1.5 text-text-muted hover:text-text rounded-lg
+                             hover:bg-border/50 transition-colors"
                   aria-label="Clear conversation"
                   title="Start new conversation"
                 >
@@ -74,8 +75,8 @@ export default function McpChat() {
                 </button>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="p-1.5 text-slate-400 hover:text-white rounded-lg
-                             hover:bg-white/5 transition-colors"
+                  className="p-1.5 text-text-muted hover:text-text rounded-lg
+                             hover:bg-border/50 transition-colors"
                   aria-label="Close chat"
                 >
                   <X size={16} />
@@ -92,10 +93,10 @@ export default function McpChat() {
                       size={40}
                       className="text-accent mx-auto mb-3"
                     />
-                    <p className="text-slate-300 text-sm font-medium mb-1">
+                    <p className="text-text-secondary text-sm font-medium mb-1">
                       Welcome! I'm Ian's AI assistant.
                     </p>
-                    <p className="text-slate-500 text-xs">
+                    <p className="text-text-muted text-xs">
                       Ask me anything about Ian's skills, projects, or
                       availability.
                     </p>
@@ -108,7 +109,7 @@ export default function McpChat() {
                     <McpMessage key={msg.id} message={msg} />
                   ))}
                   {isLoading && (
-                    <div className="flex items-center gap-2 text-slate-400 text-sm">
+                    <div className="flex items-center gap-2 text-text-muted text-sm">
                       <div className="flex gap-1">
                         <span className="w-1.5 h-1.5 bg-accent rounded-full animate-bounce" />
                         <span
@@ -124,7 +125,7 @@ export default function McpChat() {
                     </div>
                   )}
                   {error && (
-                    <p className="text-red-400 text-xs text-center">{error}</p>
+                    <p className="text-error text-xs text-center">{error}</p>
                   )}
                 </>
               )}

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowDown, FileText, MessageCircle, Sparkles } from "lucide-react";
+import { FileText, MessageCircle, Sparkles } from "lucide-react";
 import { SOCIAL_LINKS } from "@/lib/constants";
 
 export default function Hero() {
@@ -9,9 +9,9 @@ export default function Hero() {
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-primary via-primary to-primary-light" />
+      <div className="absolute inset-0 bg-gradient-to-b from-primary to-surface" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-cyan/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/3 rounded-full blur-3xl" />
 
       <div className="relative section-container text-center">
         {/* Profile Image */}
@@ -25,7 +25,7 @@ export default function Hero() {
             src="/images/profile.png"
             alt="Ian Hwang"
             className="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover mx-auto
-                       border-2 border-accent/30 shadow-lg shadow-accent/10"
+                       border-2 border-accent/30 shadow-lg shadow-accent/20"
           />
         </motion.div>
 
@@ -34,7 +34,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-4xl md:text-6xl font-bold mb-4"
+          className="text-4xl md:text-6xl font-bold mb-4 text-text"
         >
           Hello, I'm{" "}
           <span className="gradient-text">Ian Hwang</span>
@@ -45,7 +45,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-xl md:text-2xl text-slate-300 mb-6"
+          className="text-xl md:text-2xl text-text-secondary mb-6"
         >
           Software Engineer
         </motion.p>
@@ -55,11 +55,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="text-slate-400 max-w-2xl mx-auto mb-6 text-lg"
+          className="text-text-secondary max-w-2xl mx-auto mb-6 text-lg"
         >
-          Computer Science student at Simon Fraser University, specializing in
-          full-stack development and high-performance systems programming.
-          Currently seeking co-op and new graduate opportunities.
+          Computer Science student at Simon Fraser University with one semester
+          remaining. Seeking my next co-op opportunity (available May 2026),
+          with a preference for 8-12 month terms.
         </motion.p>
 
         {/* AI Chat Feature Highlight */}
@@ -69,11 +69,11 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.35 }}
           className="flex items-center justify-center gap-2 mb-10"
         >
-          <Sparkles size={20} className="text-accent-cyan" />
-          <p className="text-accent-cyan font-medium">
+          <Sparkles size={20} className="text-accent" />
+          <p className="text-accent font-medium">
             Have questions? Chat with my AI agent in the bottom-right corner
           </p>
-          <MessageCircle size={20} className="text-accent-cyan animate-pulse" />
+          <MessageCircle size={20} className="text-accent animate-pulse" />
         </motion.div>
 
         {/* CTA Buttons */}
@@ -94,17 +94,17 @@ export default function Hero() {
                 window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
               }
             }}
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-accent-cyan to-accent
-                       text-white rounded-lg font-medium hover:shadow-lg hover:shadow-accent-cyan/25
-                       transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-accent
+                       text-primary rounded-lg font-medium hover:bg-accent/90 hover:shadow-lg
+                       hover:shadow-accent/25 transition-all"
           >
             <MessageCircle size={18} />
             Ask My AI Agent
           </button>
           <a
             href="#projects"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white
-                       rounded-lg font-medium hover:bg-accent/90 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-accent
+                       text-accent rounded-lg font-medium hover:bg-accent/10 transition-colors"
           >
             View My Work
           </a>
@@ -112,8 +112,8 @@ export default function Hero() {
             href={SOCIAL_LINKS.resume}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 border border-slate-600
-                       text-slate-300 rounded-lg font-medium hover:border-accent
+            className="inline-flex items-center gap-2 px-6 py-3 border border-border
+                       text-text-secondary rounded-lg font-medium hover:border-accent
                        hover:text-accent transition-colors"
           >
             <FileText size={18} />
@@ -122,23 +122,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
-      <motion.a
-        href="#about"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1, duration: 0.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500
-                   hover:text-accent transition-colors"
-        aria-label="Scroll to About section"
-      >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-        >
-          <ArrowDown size={24} />
-        </motion.div>
-      </motion.a>
     </section>
   );
 }
