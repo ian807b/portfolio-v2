@@ -93,7 +93,8 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Upload zip to S3
-        run: aws s3 cp server/deploy.zip s3://ianh0123-website-hosting/lambda/deploy.zip
+        run: aws s3 cp deploy.zip s3://ianh0123-website-hosting/lambda/deploy.zip
+        working-directory: server
 
       - name: Update Lambda function
         run: |
